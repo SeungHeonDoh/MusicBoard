@@ -1,7 +1,8 @@
 import React, { useRef, useState } from "react";
-import { ReactMic } from "react-mic";
-import Spectrogram from "./Spectrogram";
-import TimeSeriesData from "./TimeSeriesData";
+import ReactMic from "./component/reactmic"
+// import { ReactMic } from "react-mic";
+// import Spectrogram from "./Spectrogram";
+// import TimeSeriesData from "./TimeSeriesData";
 
 export default function AudioStream() {
     const [record, setRecord] = useState(false);
@@ -40,19 +41,6 @@ export default function AudioStream() {
                 record={record}
                 className="sound-wave"
                 visualSetting="sinewave" 
-                onStop={onStop}
-                onData={onData}
-                strokeColor="#000000"
-                backgroundColor="#888888"
-                channelCount={audioCtxOptions['channelCount']}   
-                bitRate={audioCtxOptions['bitRate']}        
-                sampleRate={audioCtxOptions['sampleRate']}      
-                timeSlice={audioCtxOptions['timeSlice']}        
-            />
-            <ReactMic
-                record={record}
-                className="sound-wave"
-                visualSetting="frequencyBars" 
                 onStop={onStop}
                 onData={onData}
                 strokeColor="#000000"
