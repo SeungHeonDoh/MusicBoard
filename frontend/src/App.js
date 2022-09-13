@@ -1,11 +1,14 @@
 import './App.css';
 import React from "react";
-import AudioStream from './AudioStream';
-
+import { AudioProvider } from './hook/AudioManager'
+import {AudioViewDemo} from './component/main'
 function App() {
   return (
     <div className='App'>
-      <AudioStream />
+      <AudioProvider>
+        <p>hello world</p>
+        <AudioViewDemo/>
+      </AudioProvider>
     </div>
   );
 }
