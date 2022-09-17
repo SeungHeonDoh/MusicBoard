@@ -1,4 +1,5 @@
 import React, {useRef, useContext, useEffect} from 'react';
+import { Waveform } from './waveform';
 import { DataContext } from '../hook/AudioManager';
 
 export const AudioViewDemo = () => {
@@ -12,6 +13,12 @@ export const AudioViewDemo = () => {
             <button onClick={handleClick}>
                 {!running ? 'Start':'Stop'}
             </button>
+            <Waveform
+                width = {640}
+                height = {100}
+                backgroundColor = {'rgba(0,0,0,1)'}
+                strokeColor = {'rgba(255, 255, 255, 1)'}
+            />
         </div>
     );
 };

@@ -27,14 +27,12 @@ const AudioProvider = (props) => {
                 return
             }
             const source = audioContext.createMediaStreamSource(stream)
-            console.log("source: ", source);
             newAnalyser = Meyda.createMeydaAnalyzer({
                 audioContext: audioContext,
                 source: source,
                 bufferSize: 1024,
-                featureExtractors: ['amplitudeSpectrum', 'mfcc', 'rms', "energy", "loudness"],
+                featureExtractors: ['buffer','amplitudeSpectrum', 'mfcc', 'rms'],
                 callback: features => {
-                    console.log(features)
                     setFeatures(features)
                 }
             })
@@ -48,7 +46,7 @@ const AudioProvider = (props) => {
                 audioContext.close()
             }
         }
-    }, [])
+    }, [running])
 
     useEffect(() => {
         if (analyser){
